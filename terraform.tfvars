@@ -20,6 +20,20 @@ private_subnet_cidrs = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
 enable_nat_gateway = true
 single_nat_gateway = true
 
+# EKS Configuration
+cluster_name    = "my-eks-cluster"
+cluster_version = "1.29"
+
+# EKS Endpoint Configuration
+cluster_endpoint_public_access  = true
+cluster_endpoint_private_access = true
+
+# EKS Node Group Configuration
+node_group_instance_types = ["t3.medium"]
+node_group_desired_size   = 2
+node_group_min_size       = 1
+node_group_max_size       = 3
+
 # Common Tags
 common_tags = {
   Environment = "dev"

@@ -67,3 +67,56 @@ variable "common_tags" {
     ManagedBy   = "Terraform"
   }
 }
+
+
+# EKS Configuration Variables
+
+
+variable "cluster_name" {
+  description = "Name of the EKS cluster"
+  type        = string
+  default     = "my-eks-cluster"
+}
+
+variable "cluster_version" {
+  description = "Kubernetes version for the EKS cluster"
+  type        = string
+  default     = "1.30"
+}
+
+variable "cluster_endpoint_public_access" {
+  description = "Enable public API server endpoint"
+  type        = bool
+  default     = true
+}
+
+variable "cluster_endpoint_private_access" {
+  description = "Enable private API server endpoint"
+  type        = bool
+  default     = true
+}
+
+# EKS Node Group Configuration
+variable "node_group_instance_types" {
+  description = "Instance types for EKS managed node group"
+  type        = list(string)
+  default     = ["t3.medium"]
+}
+
+variable "node_group_desired_size" {
+  description = "Desired number of nodes in the EKS managed node group"
+  type        = number
+  default     = 2
+}
+
+variable "node_group_min_size" {
+  description = "Minimum number of nodes in the EKS managed node group"
+  type        = number
+  default     = 1
+}
+
+variable "node_group_max_size" {
+  description = "Maximum number of nodes in the EKS managed node group"
+  type        = number
+  default     = 3
+}
